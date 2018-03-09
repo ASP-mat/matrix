@@ -6,7 +6,7 @@ const int MAX=100;
 void input(int mat[][MAX], int m, int n);
 void write(int mat[][MAX], int m, int n);
 void translate(int mat[][MAX], int &m, int &n);
-void writeT(int mat[][MAX], int B[][MAX], int m, int n);
+void writeT(int mat[][MAX], int B[][MAX], int &m, int &n);
 
 int main()
 {
@@ -16,8 +16,12 @@ int main()
     cout<<"Broj stupaca: ";
     cin>>n;
     input(A,m,n);
+    cout<<"Matrica A -->\n";
     write(A,m,n);
+    cout<<"Matrica B -->\n";
     writeT(A,B,m,n);
+    cout<<"Matrica B -->\n";
+    writeT(B,A,m,n);
     return 0;
 }
 
@@ -53,7 +57,7 @@ void write(int mat[][MAX], int m, int n)
     }
 }
 
-void writeT(int mat[][MAX], int B[][MAX], int m, int n)
+void writeT(int mat[][MAX], int B[][MAX], int &m, int &n)
 {
     translate(mat,B, m,n);
     write(B,m,n);
