@@ -5,6 +5,8 @@ using namespace std;
 const int MAX=100;
 void input(int mat[][MAX], int m, int n);
 void write(int mat[][MAX], int m, int n);
+void translate(int mat[][MAX], int &m, int &n);
+void writeT(int mat[][MAX], int B[][MAX], int m, int n);
 
 int main()
 {
@@ -15,6 +17,7 @@ int main()
     cin>>n;
     input(A,m,n);
     write(A,m,n);
+    writeT(A,B,m,n);
     return 0;
 }
 
@@ -27,6 +30,19 @@ void input(int mat[][MAX], int m, int n)
     }
 }
 
+void translate(int mat[][MAX], int B[][MAX], int &m, int &n)
+{
+    for (int i=0; i<n; i++)
+    {
+        for (int j=0; j<m; j++)
+            B[i][j]=mat[j][i];
+    }
+    int t;
+    t=m;
+    m=n;
+    n=t;
+}
+
 void write(int mat[][MAX], int m, int n)
 {
     for (int i=0; i<m; i++)
@@ -35,4 +51,10 @@ void write(int mat[][MAX], int m, int n)
             cout<<setw(5)<<mat[i][j];
         cout<<endl;
     }
+}
+
+void writeT(int mat[][MAX], int B[][MAX], int m, int n)
+{
+    translate(mat,B, m,n);
+    write(B,m,n);
 }
