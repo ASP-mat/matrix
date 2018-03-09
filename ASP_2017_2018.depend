@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1520582964 source:c:\users\mbrkic\documents\asp_2017_2018\main.cpp
+	<iostream>
+	<cstdio>
+	<cmath>
+
